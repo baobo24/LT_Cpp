@@ -1,0 +1,46 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define ll long long
+#define foru(i, a, b) for (int i = a; i <= b; ++i)
+#define ford(i, b, a) for (int i = b; i >= a; --i)
+#define fill(a, b) memset(a, b, sizeof(a))
+#define all(v) v.begin(), v.end()
+#define ii pair<int, int>
+const int mod = 1e9 + 7;
+
+int main(){
+	int t; 
+	cin >> t;
+	while(t--){
+		int n, m;
+		cin >> n >> m;
+		int a[n], b[m];
+		vector<int> v1;
+		vector<int> v2;
+		map<int, int> mp;
+		foru(i, 0, n-1){
+			cin >> a[i];
+			mp[a[i]]++;
+		}
+		foru(i, 0, m-1){
+			cin >> b[i];
+			if(mp[b[i]] > 0){
+				foru(j, 0, mp[b[i]]-1){
+					cout << b[i] << ' ';
+				}
+				mp[b[i]] = 0;
+			}
+		}
+		foru(i, 0, n-1){
+			if(mp[a[i]])
+				v2.push_back(a[i]);
+		}
+		sort(v2.begin(), v2.end());
+		for(int i=0; i<v2.size(); i++){
+			cout << v2[i] << ' ';
+		}
+		cout << endl;
+	}
+	return 0;
+}

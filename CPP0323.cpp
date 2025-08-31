@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define ll long long
+#define foru(i, a, b) for (int i = a; i <= b; ++i)
+#define ford(i, b, a) for (int i = b; i >= a; --i)
+#define fill(a, b) memset(a, b, sizeof(a))
+#define all(v) v.begin(), v.end()
+#define ii pair<int, int>
+const int mod = 1e9 + 7;
+
+ll reduceN(string n, ll m){
+	ll res = 0;
+	for(int i=0; i<n.size(); i++){
+		res = (res * 10 + n[i] - '0') % m;
+	}
+	return res;
+}
+int main(){
+	int t;
+	cin >> t;
+	while(t--){
+		string n;
+		ll m;
+		cin >> n >> m;
+		ll tmp = reduceN(n, m);
+		cout << tmp << endl;
+	}
+	return 0;
+}
